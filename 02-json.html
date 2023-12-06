@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>Document</title>
+</head>
+<body x-data="{data: [] }" x-init="loadData">
+   <h1>fichier json</h1> 
+   <script>
+    const dataArray = [
+       {
+        nom: "Jean",
+    projet: "Alpine.js",
+    url: "https://alpinejs.dev/"
+       },
+       {
+        nom: "maxime",
+    projet: "taolwind css",
+    url: "https://tailwindcss.com/"
+       },
+       {
+        nom": "Adam",
+       projet: "Laravel",
+      url: "https://laravel.com/"
+       }
+    ];
+
+    for (const obj of dataArray) {
+      console.log(obj.prop);
+    }
+  </script>
+  <!-- Displaying properties with Alpine.js (x-for and x-text) -->
+  <div x-for="obj in data" :key="obj.prop" x-text="obj.prop"></div>
+
+  <script>
+    // Loading data from JSON file
+    async function loadData() {
+      try {
+        const response = await fetch('filenameAChanger.json');
+        const jsonData = await response.json();
+        this.data = jsonData;
+      } catch (error) {
+        console.error('Error loading JSON data:', error);
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+  
