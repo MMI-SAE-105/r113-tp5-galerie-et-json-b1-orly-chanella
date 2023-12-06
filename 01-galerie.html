@@ -64,9 +64,20 @@
 <body x-data="{ 
      imagePath: 'https://piscum.photos/id/237/200/300',
 }">
+
     <h1>Galerie</h1>
+
 <p>lorem⇥</p>
-<div class="overlay" x-show="showOverlay">
+
+<div x-for="(image, index) in images" :key="index" class="thumbnail" @click="selectedImage = image">
+<img src="https:/piscum.photos/id/236/40/60" alt="miniature chiot"
+ @click="ImagePath = 'https://piscum.photos/id/236/200/300'">
+
+ <img src="https://piscum.photos/id/237/40/60" alt="miniature chiot"
+ @click="imagePath = https://piscum.photos/id/237/200/300'">
+</div>
+
+<div class="overlay" x-show="selectedImage" @click="selectedImage = null">
     <figure>
         <img x-bind:src="https://picsum.photos/id/237/400/300" alt="image 237... un chiot">
     </figure>
